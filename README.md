@@ -80,6 +80,7 @@ run: ./server
 The input will be from the command line, 3 numbers represent the port, number of threads, maximum number of requests.
 
 ==Output:==
+
 1. in failure in the command line, print "Usage: server <port> <pool-size> <max-number-of-request>\n".
 2. in failure after conncetion is set, return "500 Internal Server Error".
 3. in success, return the responses by the given path. (in case of 200 ok, return the wanting file).
