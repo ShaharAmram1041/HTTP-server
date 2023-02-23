@@ -4,11 +4,13 @@ Authored by Shahar Amram
 
 
 ==Description==
+
 The program is a HTTP server:
 Constructs an HTTP response based on the client's request.
 Sends the response to the client.
 
 program contain 2 files:
+
 
 threadpool.c:
 The pool is implemented by a queue. When the server gets a connection (getting back from accept()), it should put the connection in the queue. When there will be available thread (can be immediate), it will handle this connection (read request and write response).
