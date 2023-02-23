@@ -10,9 +10,7 @@ Sends the response to the client.
 program contain 2 files:
 
 threadpool.c:
-The pool is implemented by a queue. When the server gets a connection (getting back from
-accept()), it should put the connection in the queue. When there will be available thread
-(can be immediate), it will handle this connection (read request and write response).
+The pool is implemented by a queue. When the server gets a connection (getting back from accept()), it should put the connection in the queue. When there will be available thread (can be immediate), it will handle this connection (read request and write response).
 You should implement the functions in threadpool.h.
 The server should first init the thread pool by calling the function create_threadpool(int).
 This function gets the size of the pool.
