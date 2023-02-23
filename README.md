@@ -1,6 +1,6 @@
 #HTTP server
 Authored by Shahar Amram
-Id: 205457898
+
 
 ==Description==
 The program is a HTTP server:
