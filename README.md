@@ -6,6 +6,7 @@ Authored by Shahar Amram
 ==Description==
 
 The program is a HTTP server:
+
 Constructs an HTTP response based on the client's request.
 Sends the response to the client.
 
