@@ -8,6 +8,7 @@ Authored by Shahar Amram
 The program is a HTTP server:
 
 Constructs an HTTP response based on the client's request.
+
 Sends the response to the client.
 
 program contain 2 files:
