@@ -2,19 +2,17 @@
 
 Authored by Shahar Amram
 
-==Description==
+### ==Description==
 
-The program is a HTTP server:
-
-Constructs an HTTP response based on the client's request.
-
-Sends the response to the client.
+The program is a HTTP server:<br>
+Constructs an HTTP response based on the client's request.<br>
+Sends the response to the client.<br>
 
 
 program contain 2 files:
 
 
-threadpool.c:
+#### ***threadpool.c***:
 
 The pool is implemented by a queue. When the server gets a connection (getting back from accept()), it should put the connection in the queue. When there will be available thread (can be immediate), it will handle this connection (read request and write response).
 You should implement the functions in threadpool.h.
@@ -22,23 +20,22 @@ The server should first init the thread pool by calling the function create_thre
 This function gets the size of the pool.
 
 
-server.c:
+#### ***server.c***:
 
-The main file.
-Read request from the socket.
+The main file.<br>
+Read request from the socket.<br>
 Check input: The request’s first line should contain a method, path, and protocol.
-If that there are not 3 tokens or the last one is no of the HTTP versions return error message “400 Bad Request" response.
-If the first token is not 'GET' return error message "501 not supported" response.
-If the requested path does not exist, return the error message "404 Not Found" response.
-If the path is a directory but it does not end with a '/', return error message “302 Found” response.
-If the path is a directory and it ends with a '/',  we will search for index.html: if we found it and the caller has premissions we return the page, otherwise return the contents of the directory.
-If the path is a file and the caller has no 'read' premissions return the error message “403 Forbidden” response, otherwise return the "200 OK" with the wanted file.
-in any case of failed after the connection is set, return the "500 internal" error message.
+If that there are not 3 tokens or the last one is no of the HTTP versions return error message “400 Bad Request" response.<br>
+If the first token is not 'GET' return error message "501 not supported" response.<br>
+If the requested path does not exist, return the error message "404 Not Found" response.<br>
+If the path is a directory but it does not end with a '/', return error message “302 Found” response.<br>
+If the path is a directory and it ends with a '/',  we will search for index.html: if we found it and the caller has premissions we return the page, otherwise return the contents of the directory.<br>
+If the path is a file and the caller has no 'read' premissions return the error message “403 Forbidden” response, otherwise return the "200 OK" with the wanted file.<br>
+in any case of failed after the connection is set, return the "500 internal" error message.<br>
 
 
 
-==Program DATABASE==
-
+### ==Program DATABASE==<br>
 
 1.argv - type of char**, represent the input from the user from the command line.
 
@@ -105,24 +102,21 @@ server.c:
 
 
 
-==Program Files==
+### ==Program Files==
 
 threadpool.c - the file contain the excute of the threads, the work they do and the destroy of them.
 
 server.c - the file conatin the execute of HTTP server.
 
 
-==How to compile?==
+### ==How to compile?==<br>
+compile : gcc -g -Wall threadpool.c server.c -lpthread -o server<br>
+run: ./server<br>
 
-compile : gcc -g -Wall threadpool.c server.c -lpthread -o server
+### ==Input==<br>
+The input will be from the command line, 3 numbers represent the port, number of threads, maximum number of requests.<br>
 
-run: ./server
-
-==Input:==
-
-The input will be from the command line, 3 numbers represent the port, number of threads, maximum number of requests.
-
-==Output:==
+### ==Output==<br>
 
 1. in failure in the command line, print "Usage: server <port> <pool-size> <max-number-of-request>\n".
 2. in failure after conncetion is set, return "500 Internal Server Error".
