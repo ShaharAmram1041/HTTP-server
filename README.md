@@ -1,8 +1,8 @@
-#HTTP server
+# HTTP server
 
 Authored by Shahar Amram
 
-### ==Description==
+## ==Description==
 
 The program is a HTTP server:<br>
 Constructs an HTTP response based on the client's request.<br>
@@ -12,15 +12,12 @@ Sends the response to the client.<br>
 program contain 2 files:
 
 
-#### ***threadpool.c***:
+### ***threadpool.c***:
 
-The pool is implemented by a queue. When the server gets a connection (getting back from accept()), it should put the connection in the queue. When there will be available thread (can be immediate), it will handle this connection (read request and write response).
-You should implement the functions in threadpool.h.
-The server should first init the thread pool by calling the function create_threadpool(int).
-This function gets the size of the pool.
+The pool is implemented by a queue. When the server gets a connection (getting back from accept()), it should put the connection in the queue. When there will be available thread (can be immediate), it will handle this connection (read request and write response).<br>
 
 
-#### ***server.c***:
+### ***server.c***:
 
 The main file.<br>
 Read request from the socket.<br>
@@ -35,7 +32,7 @@ in any case of failed after the connection is set, return the "500 internal" err
 
 
 
-### ==Program DATABASE==<br>
+## ==Program DATABASE==<br>
 
 1.argv - type of char**, represent the input from the user from the command line.
 
@@ -54,10 +51,10 @@ in any case of failed after the connection is set, return the "500 internal" err
 
 
 
-==Functions==
+## ==Functions==
 
 
-threadpool.c:
+***threadpool.c***:
 
 1.threadpool* create_threadpool(int num_threads_in_pool) - function that creates and initalize the threads by the number of thread in pool.
 
@@ -68,7 +65,7 @@ threadpool.c:
 4.destroy_threadpool(threadpool* destroyme) -  destroy_threadpool kills the threadpool, causing all threads in it to commit suicide, and then frees all the memory associated with the threadpool.
 
 
-server.c:
+***server.c***:
 
 1.main(int ,char**) - the main of the program. contain the implements of the server.
 
@@ -102,21 +99,21 @@ server.c:
 
 
 
-### ==Program Files==
+## ==Program Files==
 
 threadpool.c - the file contain the excute of the threads, the work they do and the destroy of them.
 
 server.c - the file conatin the execute of HTTP server.
 
 
-### ==How to compile?==<br>
+## ==How to compile?==<br>
 compile : gcc -g -Wall threadpool.c server.c -lpthread -o server<br>
 run: ./server<br>
 
-### ==Input==<br>
+## ==Input==<br>
 The input will be from the command line, 3 numbers represent the port, number of threads, maximum number of requests.<br>
 
-### ==Output==<br>
+## ==Output==<br>
 
 1. in failure in the command line, print "Usage: server <port> <pool-size> <max-number-of-request>\n".
 2. in failure after conncetion is set, return "500 Internal Server Error".
